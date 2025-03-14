@@ -6,6 +6,11 @@ import soundfile as sf
 import io
 import pandas as pd
 import pickle
+import os
+
+# Run setup.sh only once
+if not os.path.exists("setup_done.txt"):
+    os.system("bash setup.sh && touch setup_done.txt")
 
 # Load the trained model
 MODEL_PATH = "trained_model.pkl"
