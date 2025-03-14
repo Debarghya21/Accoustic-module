@@ -6,11 +6,6 @@ import soundfile as sf
 import io
 import pandas as pd
 import pickle
-import os
-
-# Run setup.sh only once
-if not os.path.exists("setup_done.txt"):
-    os.system("bash setup.sh && touch setup_done.txt")
 
 # Load the trained model
 MODEL_PATH = "trained_model.pkl"
@@ -72,8 +67,7 @@ if st.button("🎙️ Record Audio"):
     recorded_audio = record_audio(duration=5)
     if recorded_audio is None:
         st.error("No audio recorded. Please try again.")
-    else:
-        features_468 = extract_468_features(recorded_audio)
+    else:   
         st.audio(recorded_audio, format="audio/wav")
         features_468 = extract_468_features(recorded_audio)
 
