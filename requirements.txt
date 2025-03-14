@@ -1,6 +1,7 @@
+# Compatible NumPy version
 numpy>=1.21.5,<1.22
 
-# Essential libraries
+# Essential dependencies
 librosa==0.10.2.post1
 pandas==1.4.2
 sounddevice==0.5.1
