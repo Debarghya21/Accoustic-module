@@ -1,5 +1,5 @@
 # Compatible NumPy version
-numpy==1.22.0
+numpy==1.21.6
 
 # Essential dependencies
 scipy  # Added to fix librosa dependency

@@ -1,17 +1,20 @@
 #!/bin/bash
 pip install --upgrade pip
-
-PYTHON_EXEC=$(which python3.10 || which python3)
-# Clear cached dependencies
 pip cache purge
+apt-get update && apt-get install -y python3.10 python3.10-venv python3.10-dev
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+python3 -m pip install --upgrade pip
+pip install --no-cache-dir -r requirements.txt
+# Clear cached dependencies
+
 
 
 
 # Upgrade pip, setuptools, and wheel
-$PYTHON_EXEC -m pip install --upgrade pip setuptools wheel
+pip install --upgrade pip setuptools wheel
 
 # Install dependencies without cache using Python 3.10
-$PYTHON_EXEC -m pip install --no-cache-dir -r requirements.txt
+pip install --no-cache-dir -r requirements.txt
 
 # Install dependencies without cache
 

@@ -65,14 +65,18 @@ uploaded_file = st.file_uploader("Upload an audio file (.wav)", type=["wav"])
 
 if st.button("🎙️ Record Audio"):
     recorded_audio = record_audio(duration=5)
-    st.audio(recorded_audio, format="audio/wav")
-    features_468 = extract_468_features(recorded_audio)
+    if recorded_audio is None:
+        st.error("No audio recorded. Please try again.")
+    else:
+        features_468 = extract_468_features(recorded_audio)
+        st.audio(recorded_audio, format="audio/wav")
+        features_468 = extract_468_features(recorded_audio)
 
-    st.write("### Extracted 468-Dimensional Features:")
-    st.write(features_468)
+        st.write("### Extracted 468-Dimensional Features:")
+        st.write(features_468)
 
-    dementia_prob = predict_dementia(features_468)
-    st.write(f"### Dementia Probability: {dementia_prob[1]*100:.2f}%")
+        dementia_prob = predict_dementia(features_468)
+        st.write(f"### Dementia Probability: {dementia_prob[1]*100:.2f}%")
 
 if uploaded_file is not None:
     st.audio(uploaded_file, format="audio/wav")

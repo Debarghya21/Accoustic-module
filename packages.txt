@@ -2,3 +2,4 @@ ffmpeg
 libasound2
 libportaudio2
 libsndfile1
+./setup.sh
