@@ -2,7 +2,7 @@
 numpy>=1.21.5,<1.22
 
 # Essential dependencies
-scipy  # Added to avoid dependency issues
+scipy  # Added to fix librosa dependency
 librosa==0.10.2.post1
 pandas==1.4.2
 sounddevice==0.5.1
@@ -12,4 +12,5 @@ streamlit==1.38.0
 # Ensure package installation compatibility
 setuptools
 wheel
+
 
